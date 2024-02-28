@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/01/10 12:05:10.000.917,=rtl.dcp</Transaction>
+    <Transaction>2024/01/10 12:05:20.000.098,=D:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\uAiOpenAssistant.pas</Transaction>
+    <Transaction>2024/01/10 12:06:55.000.967,D:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\OpenAI1.dproj=D:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\OpenAI.dproj</Transaction>
+    <Transaction>2024/01/10 12:14:31.000.443,=bindcomp.dcp</Transaction>
+    <Transaction>2024/01/10 12:14:31.000.453,=RESTComponents.dcp</Transaction>
+    <Transaction>2024/01/10 12:14:31.000.433,=bindengine.dcp</Transaction>
+  </Transactions>
+</BorlandProject>
