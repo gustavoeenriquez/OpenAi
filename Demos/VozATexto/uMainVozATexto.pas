@@ -37,7 +37,7 @@ var
   Form64: TForm64;
 
 Const
-  ApiKey = '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';
+  ApiKey = 'Escriba aquí el ApiKey de OpenAi';
 
 implementation
 

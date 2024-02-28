@@ -1,0 +1,131 @@
+object Form64: TForm64
+  Left = 0
+  Top = 0
+  Caption = 'Form64'
+  ClientHeight = 480
+  ClientWidth = 303
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 303.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Layout1: TLayout
+      Align = Top
+      Size.Width = 303.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Rectangle1: TRectangle
+        Align = Top
+        Fill.Color = xFF99DBF8
+        Size.Width = 303.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object Label1: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 303.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Chat OpenAI'
+          TabOrder = 0
+        end
+      end
+    end
+    object Layout2: TLayout
+      Align = Client
+      Size.Width = 303.000000000000000000
+      Size.Height = 326.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object MemoChat: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        TextSettings.WordWrap = True
+        Align = Client
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 293.000000000000000000
+        Size.Height = 316.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 289.000000000000000000
+        Viewport.Height = 312.000000000000000000
+      end
+    end
+    object Layout3: TLayout
+      Align = Bottom
+      Position.Y = 376.000000000000000000
+      Size.Width = 303.000000000000000000
+      Size.Height = 104.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object MemoPrompt: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        TextSettings.WordWrap = True
+        Align = Client
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 236.000000000000000000
+        Size.Height = 94.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 232.000000000000000000
+        Viewport.Height = 90.000000000000000000
+      end
+      object BtnPlay: TSpeedButton
+        Align = Right
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 251.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 47.000000000000000000
+        Size.Height = 94.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'playtoolbutton'
+        Text = 'BtnPlay'
+        TextSettings.Trimming = None
+        OnClick = BtnPlayClick
+      end
+    end
+  end
+  object AiOpenChat1: TAiOpenChat
+    ApiKey = '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'
+    Model = 'gpt-3.5-turbo-1106'
+    Logprobs = False
+    Max_tokens = 300
+    N = 1
+    Response_format = tiaChatRfJson
+    Seed = 0
+    Asynchronous = True
+    Temperature = 1.000000000000000000
+    Tool_Active = False
+    User = 'user'
+    InitialInstructions.Strings = (
+      'Eres un asistente muy '#250'til y servicial')
+    Prompt_tokens = 0
+    Completion_tokens = 0
+    Total_tokens = 0
+    OnReceiveData = AiOpenChat1ReceiveData
+    OnReceiveDataEnd = AiOpenChat1ReceiveDataEnd
+    Left = 128
+    Top = 144
+  end
+end

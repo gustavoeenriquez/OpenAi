@@ -1,0 +1,157 @@
+object Form64: TForm64
+  Left = 0
+  Top = 0
+  Caption = 'Form64'
+  ClientHeight = 480
+  ClientWidth = 574
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 574.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Layout4: TLayout
+      Align = Client
+      Size.Width = 574.000000000000000000
+      Size.Height = 430.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Layout2: TLayout
+        Align = Left
+        Size.Width = 299.000000000000000000
+        Size.Height = 326.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Image1: TImage
+          MultiResBitmap.Height = 1792
+          MultiResBitmap.Width = 1024
+          MultiResBitmap = <
+            item
+            end>
+          Align = Client
+          Size.Width = 299.000000000000000000
+          Size.Height = 326.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object Layout3: TLayout
+        Align = Bottom
+        Position.Y = 326.000000000000000000
+        Size.Width = 574.000000000000000000
+        Size.Height = 104.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object MemoPrompt: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          StyledSettings = [Family, Style, FontColor]
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.WordWrap = True
+          Align = Client
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 507.000000000000000000
+          Size.Height = 94.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 503.000000000000000000
+          Viewport.Height = 90.000000000000000000
+        end
+        object BtnPlay: TSpeedButton
+          Align = Right
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 522.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 47.000000000000000000
+          Size.Height = 94.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'playtoolbutton'
+          Text = 'BtnPlay'
+          TextSettings.Trimming = None
+          OnClick = BtnPlayClick
+        end
+      end
+      object Splitter1: TSplitter
+        Align = Left
+        Cursor = crHSplit
+        MinSize = 20.000000000000000000
+        Position.X = 299.000000000000000000
+        Size.Width = 14.000000000000000000
+        Size.Height = 326.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object MemoResponse: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        StyledSettings = [Family, Style, FontColor]
+        TextSettings.Font.Size = 22.000000000000000000
+        TextSettings.WordWrap = True
+        Align = Client
+        Size.Width = 261.000000000000000000
+        Size.Height = 326.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Viewport.Width = 257.000000000000000000
+        Viewport.Height = 322.000000000000000000
+      end
+      object AniIndicator1: TAniIndicator
+        Align = Center
+        Size.Width = 50.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Layout1: TLayout
+      Align = Top
+      Size.Width = 574.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Rectangle1: TRectangle
+        Align = Top
+        Fill.Color = xFF99DBF8
+        Size.Width = 574.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object Label1: TLabel
+          Align = Client
+          StyledSettings = [Family, Style, FontColor]
+          Size.Width = 574.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Vision OpenAI'
+          TabOrder = 0
+          object SpeedButton1: TSpeedButton
+            Align = Right
+            Position.X = 522.000000000000000000
+            Size.Width = 52.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'cameratoolbutton'
+            Text = 'SpeedButton1'
+            TextSettings.Trimming = None
+            OnClick = SpeedButton1Click
+          end
+        end
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 88
+    Top = 120
+  end
+end
