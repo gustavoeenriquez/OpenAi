@@ -1,0 +1,1722 @@
+object MainAssistant: TMainAssistant
+  Left = 0
+  Top = 0
+  Caption = 'Demo Assistant OpenAI'
+  ClientHeight = 662
+  ClientWidth = 1072
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object MainLayout: TLayout
+    Align = Client
+    Size.Width = 1072.000000000000000000
+    Size.Height = 662.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object LayoutPrompt: TLayout
+      Align = Top
+      Size.Width = 1072.000000000000000000
+      Size.Height = 120.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Layout5: TLayout
+        Align = Client
+        Size.Width = 1072.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Layout6: TLayout
+          Align = Right
+          Position.X = 932.000000000000000000
+          Size.Width = 140.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object BtnRun: TButton
+            Align = Client
+            Enabled = False
+            Images = ImageList1
+            ImageIndex = 9
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 130.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'playtoolbutton'
+            TabOrder = 0
+            Text = 'BtnRun'
+            TextSettings.Trimming = None
+            OnClick = BtnRunClick
+          end
+        end
+        object MemoPrompt: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          StyledSettings = [Family, Style, FontColor]
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.WordWrap = True
+          OnChange = MemoPromptChange
+          Align = Client
+          Enabled = False
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 922.000000000000000000
+          Size.Height = 70.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnKeyUp = MemoPromptKeyUp
+          Viewport.Width = 918.000000000000000000
+          Viewport.Height = 66.000000000000000000
+          object AniIndicator1: TAniIndicator
+            Align = Client
+            Size.Width = 272.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            Visible = False
+          end
+        end
+      end
+      object Layout3: TLayout
+        Align = Bottom
+        Position.Y = 80.000000000000000000
+        Size.Width = 1072.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object LayToolButtons: TLayout
+          Align = Client
+          Enabled = False
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 678.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object BtnClearChat: TButton
+            Align = Right
+            Images = ImageList1
+            ImageIndex = 16
+            Margins.Left = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Position.X = 432.000000000000000000
+            Size.Width = 97.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Text = 'Nuevo Chat'
+            TextSettings.Trimming = None
+            OnClick = BtnClearChatClick
+          end
+          object BtnGuardarCambios: TButton
+            Align = Right
+            Enabled = False
+            Images = ImageList1
+            ImageIndex = 12
+            Margins.Left = 5.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 539.000000000000000000
+            Size.Width = 129.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'Guardar Cambios'
+            TextSettings.Trimming = None
+            OnClick = BtnGuardarCambiosClick
+          end
+          object BtnAnexos: TSpeedButton
+            StaysPressed = True
+            Align = Left
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 46.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 80.000000000000000000
+            Size.Height = 20.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'arrowdowntoolbuttonborderedright'
+            Text = 'BtnAnexos'
+            TextSettings.Trimming = None
+            OnDragOver = BtnAnexosDragOver
+            OnClick = BtnAnexosClick
+          end
+          object SpeedButton1: TSpeedButton
+            Align = Left
+            Images = ImageList1
+            ImageIndex = 6
+            Size.Width = 41.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'refreshtoolbutton'
+            Text = 'SpeedButton1'
+            TextSettings.Trimming = None
+            OnClick = SpeedButton1Click
+          end
+          object ChRetreival: TCheckBox
+            Anchors = [akTop, akRight]
+            Position.X = 227.000000000000000000
+            Position.Y = 6.000000000000000000
+            Size.Width = 72.000000000000000000
+            Size.Height = 19.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+            Text = 'Retreival'
+            OnChange = ChRetreivalChange
+          end
+          object ChCodeInterpreter: TCheckBox
+            Anchors = [akTop, akRight]
+            Position.X = 308.000000000000000000
+            Position.Y = 6.000000000000000000
+            TabOrder = 2
+            Text = 'Code Interpreter'
+            OnChange = ChCodeInterpreterChange
+          end
+          object ChUseTelegram: TCheckBox
+            Position.X = 112.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 97.000000000000000000
+            Size.Height = 19.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 6
+            Text = 'Use Telegram'
+            OnChange = ChUseTelegramChange
+          end
+        end
+        object Layout2: TLayout
+          Align = Right
+          Position.X = 693.000000000000000000
+          Size.Width = 379.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object BtnActive: TButton
+            Align = Right
+            Images = ImageList1
+            ImageIndex = 1
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 249.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Conectar'
+            TextSettings.Trimming = None
+            OnClick = BtnActiveClick
+          end
+          object EditNombreAsistente: TComboBox
+            Position.X = 97.000000000000000000
+            Position.Y = 9.000000000000000000
+            Size.Width = 143.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+          end
+          object Label2: TLabel
+            Position.X = 24.000000000000000000
+            Position.Y = 12.000000000000000000
+            Size.Width = 65.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Trimming = None
+            Text = 'Asistente'
+            TabOrder = 2
+          end
+          object Button1: TButton
+            Position.X = 9.000000000000000000
+            Position.Y = 10.000000000000000000
+            TabOrder = 3
+            Text = 'Button1'
+            TextSettings.Trimming = None
+            OnClick = Button1Click
+          end
+        end
+      end
+    end
+    object LayStatus: TLayout
+      Align = Bottom
+      Position.Y = 632.000000000000000000
+      Size.Width = 1072.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Label1: TLabel
+        Align = Left
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Status:'
+        TabOrder = 0
+      end
+      object RecStatus: TRectangle
+        Align = Client
+        Fill.Color = xFFF6A1A1
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 1008.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object ProgressBar1: TProgressBar
+          Align = Contents
+          Max = 50.000000000000000000
+          Opacity = 0.500000000000000000
+          Orientation = Horizontal
+          Size.Width = 1008.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object LblStatus: TLabel
+          Align = Client
+          Locked = True
+          HitTest = True
+          Size.Width = 1008.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Busy'
+          TabOrder = 0
+        end
+      end
+    end
+    object LayCliente: TLayout
+      Align = Client
+      Size.Width = 1072.000000000000000000
+      Size.Height = 501.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Splitter2: TSplitter
+        Align = Right
+        Cursor = crHSplit
+        MinSize = 20.000000000000000000
+        Position.X = 707.000000000000000000
+        Size.Width = 8.000000000000000000
+        Size.Height = 501.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Layout1: TLayout
+        Align = Right
+        Position.X = 715.000000000000000000
+        Size.Width = 357.000000000000000000
+        Size.Height = 501.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object TabControl1: TTabControl
+          Align = Client
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 347.000000000000000000
+          Size.Height = 491.000000000000000000
+          Size.PlatformDefault = False
+          TabIndex = 0
+          TabOrder = 0
+          TabPosition = PlatformDefault
+          Sizes = (
+            347s
+            465s
+            347s
+            465s)
+          object TabFilesGlobal: TTabItem
+            CustomIcon = <
+              item
+              end>
+            TextSettings.Trimming = None
+            IsSelected = True
+            Size.Width = 116.000000000000000000
+            Size.Height = 26.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = ''
+            TabOrder = 0
+            Text = 'Archivos Adjuntos'
+            ExplicitSize.cx = 66.000000000000000000
+            ExplicitSize.cy = 26.000000000000000000
+            object ListBoxArchivos: TListBox
+              Align = Client
+              Size.Width = 347.000000000000000000
+              Size.Height = 423.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              DisableFocusEffect = True
+              Images = ImageList1
+              DefaultItemStyles.ItemStyle = ''
+              DefaultItemStyles.GroupHeaderStyle = ''
+              DefaultItemStyles.GroupFooterStyle = ''
+              OnChange = ListBoxArchivosChange
+              Viewport.Width = 343.000000000000000000
+              Viewport.Height = 419.000000000000000000
+              object ListBoxGroupHeader1: TListBoxGroupHeader
+                TabOrder = 0
+                Text = 'ListBoxGroupHeader1'
+              end
+            end
+            object Layout9: TLayout
+              Align = Bottom
+              Position.Y = 423.000000000000000000
+              Size.Width = 347.000000000000000000
+              Size.Height = 42.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object BtnListarArchivos: TSpeedButton
+                Align = Left
+                Images = ImageList1
+                ImageIndex = 5
+                Size.Width = 49.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'refreshtoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+                OnClick = BtnListarArchivosClick
+              end
+              object BtnUploadFile: TSpeedButton
+                Align = Left
+                Hint = 'Upload File'
+                Images = ImageList1
+                ImageIndex = 7
+                Position.X = 49.000000000000000000
+                Size.Width = 49.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'refreshtoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+                OnClick = BtnUploadFileClick
+              end
+              object BtnBorrarArchivo: TSpeedButton
+                Align = Left
+                Enabled = False
+                Images = ImageList1
+                ImageIndex = 3
+                Position.X = 98.000000000000000000
+                Size.Width = 49.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'refreshtoolbutton'
+                Text = 'BtnBorrarArchivo'
+                TextSettings.Trimming = None
+                OnDragOver = BtnBorrarArchivoDragOver
+                OnDragDrop = BtnBorrarArchivoDragDrop
+                OnClick = BtnBorrarArchivoClick
+              end
+              object UploadAssistantFile: TSpeedButton
+                Align = Left
+                Hint = 'Upload Assistant File'
+                Images = ImageList1
+                ImageIndex = 20
+                Position.X = 168.000000000000000000
+                Size.Width = 49.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'refreshtoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+                OnDragOver = UploadAssistantFileDragOver
+                OnDragDrop = UploadAssistantFileDragDrop
+                OnClick = UploadAssistantFileClick
+              end
+              object Layout7: TLayout
+                Align = Left
+                Position.X = 147.000000000000000000
+                Size.Width = 21.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+              end
+              object BtnBorrarAssistantArchivo: TSpeedButton
+                Align = Left
+                Images = ImageList1
+                ImageIndex = 3
+                Position.X = 217.000000000000000000
+                Size.Width = 49.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'refreshtoolbutton'
+                Text = 'BtnBorrarArchivo'
+                TextSettings.Trimming = None
+                OnDragOver = BtnBorrarArchivoDragOver
+                OnDragDrop = BtnBorrarAssistantArchivoDragDrop
+                OnClick = BtnBorrarAssistantArchivoClick
+              end
+            end
+          end
+          object TabFilesGenerados: TTabItem
+            CustomIcon = <
+              item
+              end>
+            TextSettings.Trimming = None
+            IsSelected = False
+            Size.Width = 126.000000000000000000
+            Size.Height = 26.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = ''
+            TabOrder = 0
+            Text = 'Archivos Generados'
+            ExplicitSize.cx = 78.000000000000000000
+            ExplicitSize.cy = 26.000000000000000000
+            object ListBoxGenerados: TListBox
+              Align = Client
+              Size.Width = 347.000000000000000000
+              Size.Height = 423.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              OnDblClick = ListBoxGeneradosDblClick
+              DisableFocusEffect = True
+              DefaultItemStyles.ItemStyle = ''
+              DefaultItemStyles.GroupHeaderStyle = ''
+              DefaultItemStyles.GroupFooterStyle = ''
+              OnChange = ListBoxGeneradosChange
+              Viewport.Width = 343.000000000000000000
+              Viewport.Height = 419.000000000000000000
+            end
+            object Layout10: TLayout
+              Align = Bottom
+              Position.Y = 423.000000000000000000
+              Size.Width = 347.000000000000000000
+              Size.Height = 42.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object BtnBorrarArchivosGenerado: TSpeedButton
+                Align = Left
+                Enabled = False
+                Images = ImageList1
+                ImageIndex = 3
+                Size.Width = 49.000000000000000000
+                Size.Height = 42.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'refreshtoolbutton'
+                TextSettings.Trimming = None
+                OnClick = BtnBorrarArchivosGeneradoClick
+              end
+            end
+          end
+        end
+      end
+      object Layout8: TLayout
+        Align = Client
+        Size.Width = 707.000000000000000000
+        Size.Height = 501.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object MemoResponse: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          StyledSettings = [Family, Style, FontColor]
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.WordWrap = True
+          Align = Client
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 697.000000000000000000
+          Size.Height = 449.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Viewport.Width = 693.000000000000000000
+          Viewport.Height = 445.000000000000000000
+        end
+        object Layout11: TLayout
+          Align = Bottom
+          Position.Y = 459.000000000000000000
+          Size.Width = 707.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object BtnClearOutput: TSpeedButton
+            Align = Left
+            Images = ImageList1
+            ImageIndex = 2
+            Size.Width = 49.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'refreshtoolbutton'
+            Text = 'BtnClearOutput'
+            TextSettings.Trimming = None
+            OnClick = BtnClearOutputClick
+          end
+          object BtnCopyResponse: TSpeedButton
+            Align = Left
+            Images = ImageList1
+            ImageIndex = 17
+            Position.X = 49.000000000000000000
+            Size.Width = 49.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'refreshtoolbutton'
+            Text = 'BtnClearOutput'
+            TextSettings.Trimming = None
+            OnClick = BtnCopyResponseClick
+          end
+        end
+        object LayAnexos: TLayout
+          Position.X = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 313.000000000000000000
+          Size.Height = 316.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          object MemoAnexos: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Align = Client
+            Size.Width = 313.000000000000000000
+            Size.Height = 274.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            OnDragOver = MemoAnexosDragOver
+            OnDragDrop = MemoAnexosDragDrop
+            Viewport.Width = 309.000000000000000000
+            Viewport.Height = 270.000000000000000000
+          end
+          object Layout4: TLayout
+            Align = Bottom
+            Position.Y = 274.000000000000000000
+            Size.Width = 313.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object SpeedButton2: TSpeedButton
+              Align = Left
+              Images = ImageList1
+              ImageIndex = 2
+              Size.Width = 49.000000000000000000
+              Size.Height = 42.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              Text = 'BtnClearOutput'
+              TextSettings.Trimming = None
+              OnClick = SpeedButton2Click
+            end
+            object SpeedButton4: TSpeedButton
+              Align = Left
+              Images = ImageList1
+              ImageIndex = 17
+              Position.X = 49.000000000000000000
+              Size.Width = 49.000000000000000000
+              Size.Height = 42.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'refreshtoolbutton'
+              Text = 'BtnClearOutput'
+              TextSettings.Trimming = None
+              OnClick = SpeedButton4Click
+            end
+          end
+        end
+      end
+    end
+    object Splitter1: TSplitter
+      Align = Top
+      Cursor = crVSplit
+      MinSize = 20.000000000000000000
+      Position.Y = 120.000000000000000000
+      Size.Width = 1072.000000000000000000
+      Size.Height = 11.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 544
+    Top = 192
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 536
+    Top = 256
+  end
+  object MainMenu1: TMainMenu
+    Left = 536
+    Top = 320
+    object MenuItem6: TMenuItem
+      Text = 'Assistente'
+      object MenuItem1: TMenuItem
+        Action = ac_NuevoAsistente
+        Locked = True
+        ImageIndex = -1
+      end
+      object MenuItem2: TMenuItem
+        Action = ac_EditarAsistente
+        Locked = True
+        ImageIndex = -1
+      end
+      object MenuItem3: TMenuItem
+        Action = ac_EliminarAsistente
+        Locked = True
+        ImageIndex = -1
+      end
+      object MenuItem5: TMenuItem
+        Locked = True
+        Text = '-'
+      end
+      object MenuItem4: TMenuItem
+        Action = ac_GuardarCambios
+        Locked = True
+        ImageIndex = -1
+      end
+    end
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 536
+    Top = 376
+  end
+  object Assistant1: TAiOpenAssistant
+    OnCallToolFunction = Assistant1CallToolFunction
+    OnStatusChange = Assistant1StatusChange
+    OnResponse = Assistant1Response
+    Asynchronous = True
+    ApiKey = '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'
+    Active = False
+    AutoRemoveThread = True
+    Instructions.Strings = (
+      'Eres un asistente muy servicial')
+    Code_Interpreter = False
+    Retrieval = False
+    Left = 376
+    Top = 328
+  end
+  object ImageList1: TImageList
+    Source = <
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C08648800000415494441546881ED995D8855
+              5514C77F77A220C2AC17234244E843B3A6C9B174D2A8AB520E5941F5A04252F8
+              500803525442819505597EE447849651460F4114D2434145E243520F0A526044
+              19F4317D59393ACE8CA3F3EF61AF7B3DECB3CEBD77EA9C7B09EE82FD70EF7FED
+              BDD7EFDCB5F7DAFB5C685BDBDAD6B6FF93955A1D40DA340198064C0486810350
+              1A6C6D4CE3324D07BD051A0229D14641EF82AE6C75840D98B6834E4500711B02
+              AD6C6590F7830E83BE00CD88B412E8B33A00715BD60A883ED05822888F23886D
+              19C17E0FFA08F4ADA3FD0DBAA89910AB220881F62620B638419E062D8EC6E973
+              FCD6360BE22167F261D08D06B1D9D14FA421AAE33D16F91E6806C41A27C86306
+              D1017AC5D1FB41D36A8C797E7AE1170BF19C13E400689EFD12FF020240E7467D
+              468A8458E704791434D7207638FAEFA0CE06C6BE35EA77A82888E733207A7280
+              380BF479D477471110EB9D208F80BA0D627B06C435D6FF02D083A0BBC31A4A8D
+              BFCFE9DF9337C40667923F40330DE2C50CBD027109E8EB84166DAB5AEBF47F2F
+              4F80126863C693EE329F4D1910157D32E89B484F6CAB7AC2E93F02BA384F8897
+              EBA44B3D8829A0EF1C9F75A63FEA68274177E509E1E57C3F68BAF978BFD411D0
+              B5A64F251C41629FDDA073408FD74EC7FF0ED181BFFBFC4CB50EB86B26093103
+              F48BE3B38BB03BADCEE8DF95278457CC7E025D510762A6E957837E757C5E3788
+              471CED28684E9E10AF3A93FC08BADC7CBC2DF8CF044427E837C7E7351B7F25E9
+              03E600E8863C21763901FC00BACC7C5EC880E8367D967D8E7D5E22ACB9071C88
+              63A079394100687F463A55D6448D8A0EA0EB417F393E5B0DE25EC2D13DA90D81
+              16E609F1549D74DA5A07627606C466835846FA7A3B04BA254F882E679241D0A5
+              A6BFE10438082A9B3E8770938B7D3619C41267FC61506F8E1040B86626271901
+              CD356D8A930E83A0F9A6DF0C3AEE403C6BFA1D84E296D446C9AFD855213A9D20
+              1624F4F8FC337626A755CE80B0339416DB438921EEC91902404F47137D18E9EF
+              47FA1AFBBEC7D6480CB1C1F45E07E2346879011000DA1B4DB634D2DF8EF4F596
+              F371BA893367A7B2A55F0C715F411040387224279C1CE95E05F65A654DDCE440
+              8C8156140801B67B24273D3BD227E09F5C936DA3F9CECE48B7BE822180F4DE3F
+              D1F19995013312520D40D7E16FC1AB9A0001A043D1C4E50CBFF308F786DDA04F
+              0955BE5267BA9D0722D0C34D8200D2F78D37C7D9FF2AC2252B8678B290706B04
+              726714C0491A3E4A6B21E18DA153D19B6EEA007D1905D24FDD23B56E2314B718
+              621BA8557F286911E9BA300ADA099A0F9A04BA90F0E7CC0AD02719BBD7CE1642
+              5461BCB718E369FB71DF5335DD5422BC08F02A76AD760AF44CABA3774C8B4007
+              1B84F880EA8B86E65A83F9AB12D00BDC0E948149260C0087813DC03B50FA2AF7
+              08DBD6B6B6B52D69FF00F2E5B2EFC4FAA55C0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Attach_50px.png'
+          end>
+        Name = 'Attach_50px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C086488000004F5494441546881D59A6B685C
+              4514C77F9B9A0D89898F182DB136AD5612A3F51102B58AAFA6298A8D82A25511
+              11AC5F049FAD34E2E38314AC50529FA8D52F162C686B5B05515AE9078BE0A3F6
+              85F541414DB5C1564D4C6A88498CFDFB6166939B9BBBF7CEBDBBDB8B070EBB7B
+              E79C33E77F67E69C39330BFF3BD23CD00E501FE853D08D697B9480740AA81724
+              1FDF97B6673149CF048010E848DA9EC520D58306F300E94BDBBB18A4D7F38010
+              E88DB4BD73243583C642805C93B6878EA40D21207E0265D2F6D0817429E85808
+              90555EE106D026D0EF963783CE4DCDF749A4AD2120043A3F27D860938B5FA017
+              7456AA18D0C208107BBCC29B420437A6860165405F460059EE55381A22D8EF33
+              DE01FA11F403E8FA1203B93902C498C92D130A7F85080FF88CFFEC69EB2E2188
+              1340DF4700D9E6D52803B68758F4B795E5F95E6CBA0B688A9059EFFBADF3F22C
+              F63E50A34FB603D4033A54BAA9A50AD0C188D118049D18A49C0BBF47CD744A33
+              FCAA09B43702C83BE9F81648AA022D00DD0B5A026AF6B5B782D6828602802C4E
+              C7E749A44A50571E07F783EE07557BE4A7833A41BF5899C32618C4EF7826E835
+              BB2EFAECE7ABE6796C5B2781BE88983636ECAB0B74B647B706B40CF46412100B
+              ADD1A0CEFE04B5C5B4D7E900C29F2B3653D8EE56B3EDC28F7A730D316C568376
+              C70493E3BDA03B89BFD3D55AC70E5E71B437DF7E9E6EDF721230027D626CB803
+              39E468F8A083AD36CCE2BECEF3AC06B4C861D483F85BD0C9AE40461D8D0E3BD8
+              5A6765FF01AD01CDF2B45D0EFA26019875AE408A39225781FEF5E97D0D3AC7B6
+              4F035D01BA15B4CAB1DF31D06C17204558233A1334DD7E7F2C40B71FF414E854
+              8F4E19688B63DF2EE75985462D5562EA898F4159FBEC4AD00A4C3EF0EEA48740
+              1F821EF5E8DF8039C75A4EFE9D7097031020711E5116F48147761B68864FE68E
+              3C76D7802A7CB217817E0B907DDA11083091D97BAC720FA1995DD53E109EA0A0
+              B7402B19DFB9EA5AD07B986CFF9547F657DB472713EBA8CA827F1EF436E664A5
+              54C59D1A41FB1CE6F656A6E40265409F05C87683DA4BE4F0140015A08709AF36
+              FDDC8B89506D8C970CAA076D048D04C8EF01BD84D954DE0E5A504C00E5A0A544
+              1742513C3CD9315562126613E8481E9DD5853A9F01B5809E0BE924098F815E00
+              5DE8EBEF02BB8E867DF29779A5423660AA05660375C00C600ED002CC076A0B7C
+              1B513400F4024B20B3CBFA53093400B95A653764E460ABE0E9520C1EC484E366
+              929FEFEADD2238328209998B30FBAC426CF58376823E32EBC71D4815C1E1D095
+              474137595B750497B64938C9C1834E037D97A0B321D02DD6460DE8F3224EB779
+              0980006816E698D4B5A3FDA0B956B71673031B26BF13B3AF7399CA3B12821807
+              538F4948619D0C809EC044173061F340844E3F135B90D50E40AE2E1008604E40
+              B6FB0C8F604ACF07417556AE0CF4006E6BE236ABD3427036F7F2962280180793
+              C51CB1B66276A4595F7B3B6897E3147CDCEAD4604AD730D951A61CDF1695540E
+              BA04F408F14E479EB5FA65A0F71DE45796124435687D0CE785B90B5C61F5A731
+              51CB87F1BEA9235F1A40EDB885E8C3A00EAB9325FCA636C77F9B113F6EA42CE8
+              212697AF391EC31449B9607006D1179C39BEE738829804A81C743726971CC0D4
+              1BDEF3DBC576645C40BC98128830522326E185DD977BF94D1308DCA994D76796
+              94C15CA3FD01743B28BC0C2C85CCB138BDA4F0D707CD015A818B81B9989A6726
+              500E2C834CA23FC8FC07F2D5ABCDE7EAAD510000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Broom_50px.png'
+          end>
+        Name = 'Broom_50px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000239494441546881D599BF4F14
+              4114C73F9850106C4DAEB0B4B7A2950EB0860A696C4CE85081444D8C402788BD
+              7F0A91965A0809858D95919050F1235EC87D2D3897BD65EE6E77DECCECDE4BA6
+              D86477EEF399D97DF76606462EB4045AA89BC233B40CEA806E402FEAA6A91819
+              BCBAED06B4583755C9D05217580581D4B3A039D001E81CF40BB4099A18F24C71
+              E4056A83E69320E740B61C2002FD00B5FA3CD318F8AF0EF07CFB097A3CAAF00E
+              89E6C0EF9684CF4BBC6B0AFC978AF0FD5A0A787D004DE5AE7702C1A74895D948
+              5F80A641DB81E03BA057B1E18B23DD0E043F203BF5C683C046E381FB7B02ECD1
+              F77F22486823F0A87BCD4415E05DD037D058628943D0A4153E9F1AEB90F86881
+              5F7374B85DB827B6C4B145E029E8CCD169CA99383508641257354AEC59050615
+              66B1253AA0390B7C99C22CA6C4BA05BE4A61164362C502EF5398859430C15B0A
+              B31012AF2DF09F034CBD45E28D057E3D00BC45E2AD05FE39EEDD835412AB0678
+              00ED0786AF22F117346D1570950B29252E8C123A8928E09270A569CB6BA44F91
+              0586CD8425FB00E821E8A826094BF6E99178C4ED0A28B144D0502BC1F720EE2D
+              8AAAC5805D89B13FC033E0C8F2038EB82C5CFF0EDC7F319C4B49DFB642EFCACE
+              FAC10E85779D8CF8B65C61A629D0FBD8F0AE2D6EDF1223F64897826F835E7A64
+              A750A9D10CDFDDE2AE9462AD855968F8ECBE32126B0D85CFEE6FF591E88036D3
+              B27B9F4969E21656C7A053D077D06C1AE63B88A61C22FB866640D7D546BE71A1
+              D9AEC428C2FF0F2D8CD06B93C53F487E6A288926AD630000000049454E44AE42
+              6082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Connected_48px.png'
+          end>
+        Name = 'Connected_48px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C0864880000029C494441546881EDD94B6B13
+              5118C6F13FC520365863689446C182D0BAA82E7463ED523F8850FC0CA21F4970
+              21A81B6F6DBD558D5A2B5E6A0517EA4285829646C5C5E3624E2E4D3299732667
+              66D290170E84CC9939EF6F6EEFCC1C18C630628646415741B35967624239D005
+              D003D086692BA04BA0BD21EB8C811E8204DA029D4D37E7F6848AA0FB26A14E6D
+              1D34D5B2CE18E8514BBF2DD0B96C0C6802F4AE0BA2D6BE838E9B758AA04A48BF
+              6A06184D80DE5B209A31A7238E9E4037FA19516BFF22965F07ED4E32F125D053
+              5009548E89886A0BA07C8208300899EB613D0144D247A20E293461762A2251CC
+              5FD0C914118962BE81660605F30574340BCC31D06FCF98B7A0D134110740AFCD
+              E055CF988B69210E813E98419F818E783ECD2A69200EB7200AE67F9FD7CC66D2
+              8849D0A776447DB92FCC465A880A687F483F1F98BBAEC9353D3B75ED37027A41
+              E3AE7230A27FAF98F3AE90DA60AB1698398297A071CB6DC7C52C8176B9420A4D
+              7B7A0D548EE83F1263FB2E9855FB1DB57DA0328D3B9025C6790CDBA2F9A4FDE6
+              618F58EBB0418F18EBA2E91DE111635D34134378C05817CD977111E3E682B2BD
+              F862609C8AE6C7183B4B39820F67AEB743078C75D12C35EDD06557C87C0C8403
+              C6B96896408F8951C5177B80D8621C8B66ACD0668F90848AA63BC4D79B5C0245
+              D30DB2E209923AA6F5105FF1B8ED29E05E46474679FC7F1DCCEA34D30CE8C7A0
+              60A6415F0705738AE033E54EC66C9BB3F3DDD2C2749CB3F3D19E83DE98DFAECF
+              4E7D835806ED23FEB39313224F3013D42DA13FF111A9856E4624B4003A01FADC
+              C70800CD827E8624740BB4C7F49BA4F13ED16F883AE60CE8574B42B71B887ABF
+              698237B730C422A8988DA1916433E60EA1F3101A035D06BD22A837558279F179
+              502EDD9C434373A06BE188610C232AFE03C974FA8AE185508F0000000049454E
+              44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Disconnected_50px.png'
+          end>
+        Name = 'Disconnected_50px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C0864880000015A494441546881EDD9416AC3
+              301005D04F8D83D7CDF9DADCA73D4643BB4ABD6CDACBFD2E220D6E50436C6946
+              63A30F8660C3CC3C83238180969696968D850780BB8AFD779719F28ABC0224C0
+              4F807D91B9E6F5EF018E618697A5459E4381789D6C31ECC30B9CCEF0B4B4D058
+              0793448C19BDD9013C5E15FC0238149DFB6FCF21F498F63C5E66C92B6C885143
+              4803038C3A421A296238003C1B20A4A102C61C218D0B62AA216480029824E2CD
+              1021836460DC2064A005187708196C06C62D22E61E8C7B44CC2DCC6A103149CC
+              37C09F1521629298B52162D801FC4820DEB5100F1A4501F4001E13F7F7E1D91A
+              92FCB0A7D779DE0EA04AFEDD3B5D7F339E31B7FE62D985DFDE31F7AC13EE3173
+              163BB798252BB63B4CCEB6C30D8643D87A64ACD8D531251052AB16A624426A5A
+              63341052DB0AA389901EDA180B84F4D2C25822A46769CC668E153673D003601B
+              476F52EC80F51F86B6B4B4B438CB2FD91CF2F03CA3CB320000000049454E44AE
+              426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Delete_50px.png'
+          end>
+        Name = 'Delete_50px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000248494441546881ED98BD6B54
+              4114C57F6FCD8748501009092B8AD1C2C242442120F90F24AEA010B051918058
+              F817D8DA2841145188426CB4D34AB0532B416227A208123F8AA024205113227A
+              2CE63D93BCACBB3B79775E0CCE81030B6FF6DE73EFCC9DB9331011111111F13F
+              23B133A52EA0061C04F6023DC02640C014300D8C038F1C93693BDF85A03ED04D
+              D057905AE437D055D0F6D514BE1E3402FAE1213CCF79D079505BD9E277825E14
+              109EE77889B3A17DA04943F1193F82F68416DF07FA14407CC629D08E50E23780
+              5E06149FF119A8234400232588CF78C14AF466D069D07DD0CF120398A558516B
+              0BE83268A644D179DE5EA9F8C398EC32CBECFADAF80EDAE82BFE2CE8974D060B
+              0720D0491FF187305DE726014C82C64043343EAD55057DB65DC326012CE604E8
+              E8DF02B8652B3E4800194741EB161BDE866BAAD64A00720977A8004780F606EB
+              EB5FC429D0F1F4B71ED8673FF80C08F401D451017617CCC6094892E5CCA3EE18
+              9F6D328FADC031F0BB49D5E33C68C0DFBF060C6AEF2ED8B40BEF41DD1EE2BBD3
+              FF14F5FB06D06BA335F914D4D982F8CE74AC85CF990AF0D67FFAEBA21FB8D8C2
+              B84BE9580B08D019A36C641C6EE06FD8D8D72B706D449197853C6741FBEB883F
+              907EB30CE04E66FC86B1E15C519B156D9E4399835ED01763E38F41ED299F0410
+              3FC1D24D4383D85F1BAFE05EE0ACC58B855662C93A3D17208810BCDE6867AAB1
+              BA77E166BC066AD67CAA8A2BEC006DF68AF98E85A2FD8326CFEBEAC1B5DB3560
+              1750055A386D4D30873B649F030F817B90CC95E43B22222222628DE037B6AE53
+              4B3C35AE9F0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Download from the Cloud_48px.png'
+          end>
+        Name = 'Download from the Cloud_48px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000284494441546881ED983F6B54
+              4114C57F6FD74D1A131044115CB0D144535A248824984AD046043F827E05FD00
+              1616FE8108560A6A692308496C42D660290A59431A114C3A3B8328B2D963B16F
+              D7707D33EBBE99F01279076E31BB77CEB967DE9DF767203A3401BA076A82BEA6
+              B10ABA0B3A135F2F1A5403CD815A2039A2057AD0C9DD53D010E8B5A7701B0B7B
+              CC841E0D507C371E165D750A4DF4691B5F3B9D0E55AF44707003A8E6985705AE
+              47D00F85D672AC7E375643D5930806B6808339276F41321AA21EC380C2E62741
+              35C4D80385A23450344A0345A33450344A0345A33450344A0345C36340BFCCBB
+              BBEB1BF67B80FE96437BD868FF7411F8AEC037333EE4C8FBE22DD10FD75CAB65
+              6BE9C16760C38C4F3AF2163C1CFD30EFF8DD6A3917C96760DD8CA71C798F8196
+              87C78516F0C4F1DFB93EB5F4E033F0C68C2F67A7256BC09C87C785FB90B80AB3
+              5A8D1CFC3A016AEFD8486DD09823B7065A1CE0637E1E74C0C1356E74B741F51C
+              0600D430C22F3CB9918E16F5DCCC59CA593C802E19B23668B2CF9CEEE1EE47D0
+              8F349AFCD3E1AEA6D215DFA97925C00080960DE127D0E140D22C9D23A0CF46EB
+              0328F461AB49D3934A4D0DC5283BD51806AD645CEDF3B104EE64F4F30AE86804
+              EE63A0B719FCB7C3B9FF885440AF32443640D301BC33A0CD0CDE97115AE72FB1
+              D1B427AD581BF414746A00AE31D0B38CD614E83D682472F13DE111C795E81A69
+              806E822E808EA7B7D61AA80E9A05DD4A5B2FABF0EECAEF56F13D1395744FB88A
+              C813ED4ECF476F1BAF9159D07A84E29B61FB28CC4415748DCE6DD53E807CB10D
+              5A025D0D5DF508C7EB5DA80E5C04668071E0AC497847E7AD721958846433866A
+              4403169291DA15ADFFF99B787FA03450344A034563DF1BF80D1AB75E89772761
+              F80000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Microphone_48px.png'
+          end>
+        Name = 'Microphone_48px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C086488000001A8494441546881ED983D2845
+              611C871F5F252192329024992C529252CA6230DED568355A8D56A3F58EB2DD8C
+              16A52425830C0619888114F9CECF707A73E95CF7DEE33DE7DF5BE7A9DFFE3CE7
+              76CF79CF819C9C9C2A680B34646DF10F24D01B681DD4656D9300A96CB7A06550
+              93B5551DFC08703B02CD589BD5486C805B2980FFC79F01023D81D6401DD6A615
+              A81AE076095A0435581BFFA2E600B703D094B57519750708F4092A82FAACED49
+              18E0F6085A05B5861AE076062A841CE0B6031A0B3940A077D006A837D400B73B
+              A2634973A8016EA7A0F99003DC4AA0E19003C4F7B1BD33D400B72BD012A831D4
+              00B743D074C801223A966C8206E3EC7CFC4469D350B624985EFD3DD0C43F2F80
+              89F805A8809F778B4CC59F894EAF6D1EC4330F2882063C8A6716700C9A4D413C
+              F5801BA277E8B4EF84DEC55F89BE6274A72C9E4AC03668342371AF0127A0B98C
+              C5BD04DC13BDB4B418C9270EF8203A16F7188A3BEA96DF058D5B5B9751B3F839
+              68C1DA3686AAE20FA015FC3EFE7D5251DC7D3EECB736AC42ACFC3E68D2DAAC46
+              7E885F93CDE3DF2712E885E898DB6E6D9300954023D616393939F17C01396A50
+              F2E8C7134A0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Play_48px.png'
+          end>
+        Name = 'Play_48px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000370494441546881ED9ACB6F0E
+              5118C67F83545D9B8894884B5C430836D8285A412222086A438360656181C442
+              DC16FE02972D82888544E2925417AC88BBBA5B8845DD2ADAAA6AABFA58CCD79A
+              32E7CC99E97C97852739C9D7AFEF3CEFEF3D9D73E69C33858295F682FAE59B22
+              A1B40724D0A8A8C8942A540950062C0066005380618180964C7B01DC07EE0035
+              E0B58678550147333F940275E930FE9BA80F6815E812A82DD363715A23E83468
+              51C0732DA82310B32C5BF01B40CF12409BDA6DD0BE908ED89436F84450758AE0
+              516D7714519F18F0DB8127C0E2E41D105B23A3021C0A90073A029C0406F49E29
+              964AA30222662179C071608743B206E032500D3C07DE01ED99DF15015381D9F8
+              7FC12540B183E70887189B74C8E13EAD056D04B90075F94E023539783FEA0D7C
+              6584F937D04E50DF98BE25A07B8E83F84352F8C9113DF402342D81EF40D0CD18
+              B35047FC0EF213DDB0983E04450EAE10CF22D0D5045369DC71A0F516B3D7090C
+              F17B5117123E0B66DA9CBDBF1279C063FCF5CCDF6A01E681579BA0800AA032E3
+              D106B4023F809F4033F00B6802843F9B0134029DC04BF09A5D132DB7F4C4AEF8
+              E039972E5A066DA1AFCD3514D46A28604BBEE91CA41506F8AFC47A48E556C1B5
+              D07C43CC95F08D47612858C074434C4D2E40922A58C01443CCE35C80A4207D31
+              8C81E1F9267394715F5B946F329B82B7906788512E400CA9FB1B3AB57B520916
+              F0CDE052925D48AB4CB9BB598305D41B82C7A786135F130CDF7FEEFA102CE095
+              21D8BA1ACCB26619BEEF660D16F0D4105C911A4E7C997287B16AA961C0348306
+              6793325C1A02FA6E600A2B4C83402D85B398D3364B879A8E7774BE3096D32A02
+              BD31B09CB15D58201B9AEEE3F5B0B634EAE2BB860BDB400B73005F0E6A3730DC
+              7131B06DEAEB40A3B3083F06F4DE927FB5AB91ED58E509686C16E0C7E19FF299
+              F25E8B631675B0F511549622FC02D0274BBE0690E9A96C348D3A5A6C031DA657
+              CF0815830E58EE79813A416B92267039DCAD036D25DEE16E316833E8AD83FFFE
+              84F080FF6EE0844312E16FFE4F813681E68046E09FC8F5CD7C9E0BAAC27F2FD6
+              E0E879AC17F03D8A38E29830CD76D0CF9D9AB412F3B633CD560F5A9122788F22
+              B2FD92EF3A2817FB0F55821EA4087E1FB42E07E0FF14520E3A87F948D2D65A41
+              67E9F1A23BBE521A24A1FF6A309C3F7BDA46FC2DEB4BA016B809DC02AF299DFC
+              FF953FFD068B4B8DEE589FEAF20000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Reset_48px.png'
+          end>
+        Name = 'Reset_48px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C0864880000010C494441546881ED994D0AC2
+              3010855FC5B5B8F307FC01118FE8D603554FA027120BF502E3422A2E6C984E27
+              4985F741569279F391960E0620849001236B404A40EE8048A275F46A7E05C823
+              61E3DE1272D685F5CE892521CFCC027D25B4C76DADA7CEB14A0C46400039B555
+              2DC2811A8A408D50BD665FBF9C916EF370A1406EC6E9A2B4EF4A3778023E1F33
+              3B7F7F0214C80D05064CEB605502B28990B705E4E238B6B70ACCBC5BFFCA5C76
+              15304CA371BEA8D6DCBF7F0728901B0AE48602B9A1406E0C02514789B967B1D0
+              30E719D4E42D2CC35C6816AA014CFC1B355103C5F4D70FA147E816A9190B57C3
+              1E390052E9FFE48DB62A40F646F1CF1593F2AEC075D5785FB2EC8CCD13424802
+              5E8009083C83C7B0A00000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Save_48px.png'
+          end>
+        Name = 'Save_48px'
+      end
+      item
+        MultiResBitmap.Height = 52
+        MultiResBitmap.Width = 52
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 52
+            Height = 52
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000034000000340806000000C5781B
+              EB0000000473424954080808087C08648800000487494441546881DD9A5D6897
+              551CC73F8FD3D10B5119D8D2D4954D727362BA5E88D1202321EB2248A2C26E82
+              EE82AE46D4D68C2CBC490BA4FBF0AA826CAC042B8C20CC749836E9A66218351A
+              0B6BC50CA1EDDBC579B6CE9E9D739E97FF735C78E0C0FFFF3FDFF3FB7EBFE7E5
+              392FCF1F2EB394C40BAD2540ABAB0092D178BCD192DA41F2E41B62B12E891518
+              D81028EB88451AD3507BA0AC3316E962F5D0C658A4250DE98A12E0DB03652586
+              5C29CEC24113D09BA073A0FB0AE09B407F071E0A7F9898B9717A403F81F637EE
+              E1BFA089093827E61FD05ED0B2409D750133B3794DA07E33E82DD0B485AFCB94
+              5EF7083A0ABA3983BD17B40F345AC0D00FA0574199B9A635A02F3C75F6346A66
+              7F8EA849D02ED023A0AF0B98F0E52F41DB40CF82FECCC1EEAB6A6619E8740322
+              63E553A0A5554D6D243CB92F75BE000AAD6F854C3D5F9274067402D40FEA06AD
+              C64CF2E6F47337E865D0C9145B26F6730D9A01CC536EA820E17BA0D0FA938DBD
+              21AD5324F6600D66E68857817E0B904D811E6F20FE93E970F2C59F00DD549F1F
+              43FA98876C0CB4C581DF02EA031D021D4BF321D04BA03B1CF8AE34968BE3D19A
+              CD0068BBA767B666709DA04F0A0CA123A0CC9E4E773A7A6A06B4A96E33493A89
+              B3A29EC8E09E015D2C31C92F9A3AF362EC72E03EA8DBD0FD0E924F3398A728FF
+              D49AED816CC31C7560D6D769E86D0781356FD44963EBD50590B5035797A371FA
+              EA30D2046A734CD6E319DC919C1E18C5ECD443A60E67626687F808E856CC5D45
+              AEF004740B664FF602E820668BE16BF517ADBA9B0322DF07B55AD876D06701BC
+              35F9D5E7C14C818641EF807A413B52EDF67144CB4B0E91BBACBABB3D987703BD
+              EEDB4DF75BB87B4A6A5ADE88A116ABEEC78EF269D0AAC088E8F2C41DB2302BAB
+              18AA72A7300D4C58DF5D2BF8F790FCE20F910C037F390A565A9FC753AE52A98A
+              21D510C3971ABEF8AC226629B0C2FA3EE6C0B4E50F39AE7114D8BDDA02349515
+              57B575EDA3F7094F5CCFC9524DC01B9EB876ACD55584D944CDA00ED0D3984B90
+              21D0B867025A8B5CEE637B9D85DD54E2B13DE0C18CA5DAF6A65A3B8CF6622697
+              806E03FD9A095A6661555A7F220793B7B09E65E17A5335FD2FB63EFD0B755537
+              D4E31071A937A7254EC2C54C1D7788C90A791873B555D4CC2468472686EBF8F0
+              61CD6680C53DE06D2EAAB2CCFDD6F58EDFAE02864CCF24A7CC4FC908F0603AC7
+              1E02B60237A6F8716018380CC93719335DC0207065862301DA80D325B4E625B5
+              622ED87DAD1DFB92E43CC1BBF07264CD98ED7A9139F11585DE4ECCC5EEF1CC4D
+              573E49F1F52648FA4A85A756AC8BC6DD8D9AD9C6FC571A8B9DA78DA66A66AE26
+              FFD8BC18F99CD1E64E81CD6932051CC871FD33F0007037F05185560373E63988
+              7991BC9DF93B6E573A906AAB9AF49AA7A506412B32D86ECC3BA5223DFB23680F
+              0BDE26A805F72958464B2D49BD56D0F3A09D39F8B60286D6E6C4D89972CDE27B
+              6B3233473000FA9C42EB819A08AF2B93147B69BC36E51C685CBF576861EC9980
+              A16371384B9F589332971667036567227146FD27C97781B29158A48B65E8DB88
+              BCB192D67BE6CF0CE8DA58AC31FF009800D779687F8FC77B99A57F013A864B0A
+              0A1A6E2A0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Settings_52px.png'
+          end>
+        Name = 'Settings_52px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000053494441546881EDCFB10D80
+              300003C184FD770E0B809402E50BEE5A37FE31004AF37D5AEBDC8D1DF3F1EB75
+              FAC6D704D404D404D404D404D404D404D404D404D404D404D404D404D404D404
+              D404D40400FCDB0D56460248B65387650000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Stop_48px.png'
+          end>
+        Name = 'Stop_48px'
+      end
+      item
+        MultiResBitmap.Height = 52
+        MultiResBitmap.Width = 52
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 52
+            Height = 52
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000034000000340806000000C5781B
+              EB0000000473424954080808087C086488000001B5494441546881ED9A4F2F03
+              4118879F157FEA441C0489A8A3E08BF029248293E05B48449CF81C4E121F4004
+              11774138E246A2177E0E6D9376B2ABBB9DA9BED9CC93BC87DDE9CCFE9E9DD939
+              6C1782A279D009E81DA40EF5063A0655C3660886B640B51C226ED5401BFD4EEF
+              A0AD2E44DC5AEFB74503CD7539336E7D81667DD30C0430DA03465A8E05EC034B
+              C044462D03078DDF36A900BB01F2F8A227E74E1F15E87BE8F4BDEF5DCE7C8186
+              413F4EA88502FD179DBEDFA0219F44BE4B6E0C489C73EF05FABF3AC703C0B857
+              A26CB40A7A0CF0B087AE07D04A566AF7EEB60ABD00DEBB4E8F7886A49AD6F097
+              90B2DB2C90A4660FB16D9B22C5D2FACCB8B4CF54E966280A59E78F5DAE89FB4C
+              A5EF2E29FD2AC06846E31724B59CE314BA7E0F854251ECFAA55B72A5131AF41F
+              A2D392F06D2F46E966280A59270A59270A59270A59270A59270A59270A59270A
+              59270A59270A59270A5927C07BB94EEFD17CDB8B51BA19CA23F4D97EA8C99E24
+              4945D3CE898F10835E3A7FAB9FFE8F94A64067CEB52F420CBC63E0DB84666D87
+              101A01DD1990B9AD6709826640E77D94B9A92FC1A02801AD81AE08F37D5CA7AA
+              81AE419BA0E1BC297F01321B378626E9C65F0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Trash Can_52px.png'
+          end>
+        Name = 'Trash Can_52px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C08648800000238494441546881ED984D6BD4
+              5018859F44AD454441848E0C551C05372E445C140AFA070AB6E0A2A02E04772A
+              FD01C5ADCB228828E8D0FA07140A823BF75A5D8974A358D45A9576E3D7D86A8F
+              8B2412829D4CEEBD4914EF8103433239F7796FF226B9012F2F2F2FAFFF5981BB
+              286D07468161E008D000760202968115600E781839587137B695D402DD067D06
+              A9477F015D03EDAB13BC1F34055A2B009EF52AE8326873D5F00740CF2CC0B39E
+              ABF06CE82868C9217CE237A0C365C3B7401F4A804FBC0CDA5F16FC36D0F312E1
+              133F02F59551C05405F089AFB882DE053A0FBA07FA6900320D9A3138EE1B764D
+              ADDDA0ABA04F9697427FECC706C7DF31853F89FD5DE63D68309539186F2B92F1
+              15B4A328FC05D0BA257C0734F487ECA1785F91AC7345E04730BBCEB3BED8658C
+              4B05B396887A689CEE4F6B35411F1DC04FF730513386D9AF40A7360A6D3B808F
+              9B36B700D3A64E7C0BB4291DB897E8A5CA063ED3B4B945983475DAED74D88425
+              FC2AE878EFF0BFC73D613971A793A0FB96057469DADC228A3675DAAF417D01E8
+              05D03287D8484166B527B91F83332130504270551A09813266A62A1D0B81C5BA
+              292CD40881977553584821305B3785851693027ED44D62A8A721046F8176EE5F
+              FF4ECDC6F76AED01E681A2EFDF756A01381446BF8377C05960BD46A0A29A84E0
+              7B669B2670B32628DB37BA14A651ECD6C265FB3A684BCED951137413FBD76C97
+              5E008D6749733EAFAB018C117D363F083481AD39D5BB5287E821FB047800DC85
+              A053D1D85E5E5E5E5EFF887E010950DD4DDC01E1FD0000000049454E44AE4260
+              82}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Upload to the Cloud_48px.png'
+          end>
+        Name = 'Upload to the Cloud_48px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C08648800000098494441546881EDD9410A80
+              201445518BF6BFA76A613615CA3414BBC53DD034FE53F86F6008921AC42D8418
+              21DF7A37E95408127B1E4BBB293BEFD2FA8331CA073A8F18630483D01884A672
+              6B5D493749BAD57AACECE75BD21BC99FDA3B9DF39B1B31088D4168EC111A7B84
+              C6203406A1B14768EC111A83D01884C61EA1B147680C4263109ACAAD457BA63E
+              2BDDC83E648A3AA459A4CF39002C7D5F37347FF4D40000000049454E44AE4260
+              82}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\View Details_50px.png'
+          end>
+        Name = 'View Details_50px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C086488000006B5494441546881ED9A696C55
+              5510C77FAFB480403120944D4141448D5205A505624042827E206E6C550489A2
+              520113E38689411617102490182346C1A8D1281FFCA041251A0249D964295B51
+              A008B2CBA216642974FC70E6DE3BEFF6BEAD3C10939EE4E6BE3BCB99F33FCB9C
+              39731ED497CBABC4B257955C05DC03F4026E076E045A02392A50031C032A800D
+              C04AE07B881DCB5E1BEA5CA4314809C87720D52092E173166431C8709046FF05
+              8026202F831C328DAA06F9DD7CAF0579CA7C3F0DB2CE7CEF09813F00F222C815
+              970AC45D20DB4D03B66A2327E8F77907C0975739FFBB14A446E9E3F4A930F5FD
+              02D2E76202680C32471B2A201B410681C4408A41CE28FD89905E080898913A0D
+              52A475DC0BB2D974C66C6733BB205A83AC56235520CF82E42A2FCFF4E87B11BA
+              114000E47D33A2794ACBD5BA4F286FB5B39D1D101D403669C5BB416E0DF14BCD
+              9C6F9A0190A6664D3D19E275D7FA04A41CA4FD85822800D9652AEC10E237320B
+              7E4C823A120001370D4540F607A3E2F3AE361DB813A4555D41E482FCA815ED05
+              691B2153A2FC6D200DEA0024D7388EA111FC0E0A52409624B6911CC81CE34904
+              E408C85B20371B99E5CA9B98A49E244000E43995596A68D783BC0D723CD48659
+              99821884739167740DAC0A55B815649ECA9CC2EDEA7505D25AEDD4804C71807C
+              F72C2065AEA3E4ACD207A60BA2895917930DBD37C887207F84409D53A0F341C6
+              6B2714BA052AF9462E5FA74AA1CA4C00F900E799CE85EAFC1B6401482F637FAA
+              F27690DEA6299354A102A46104BF01C80003361B8F3702BB401E729D59CB6E23
+              DC6629202F84B9A1A0511A03BB81026030C4BE49003607F813C8C70588570285
+              FA74065AE9D34C1F8013401570143802EC04CA7101E43FC0CFC05F400B882572
+              0EF7015F0307816B2176265A0E790CDFD5262BD20DDF6DA62AA9D6882F775065
+              BBA690DBA2728F5A6A4E486AA4BE3F4B61B5BBBE37A46E60DAC5EBBCEE49A5E0
+              137D8FB44403445A00FD806A60618ACABCDD3DC5C86554D6EBBB3085DC025C1B
+              EFD636D797FF43915F75210D33B4F1C64D1AB727C395A653C25F848F18197BB0
+              9A64E80F2A6D937EEFD4EF2146A63481EEFDF8615150C28B7D91BE071B9AF50E
+              25E6B727F35512DD51974037AA48B1A23DE4F60AE9AC9B55B919ADCEBA297A3B
+              BCC65ED253BF8F2ABFA3EA6E36A3D50D77883AA0DFBAB0A5AF7E1F0CD9DD4870
+              D6B94175F7E9774FDBF2F088AC02F6E036C422DC68C4702ECF737B25406FDC86
+              B705625B1D39B616A8C4654EFA1ADD4FF5F1747B016D816D10F3BC5E19B01768
+              A37CABEBD97D18B803680FEC547BC98ACC53C4AFE342EC73B8B8A98B199D3755
+              666A4877B6D267684FD6E8C878A353411033BD11D27D57E9D3D5EE79906B403A
+              19DD292A333305080019A8C287F5BDCCF0D628CD1BDE1E21DD7E4AF7A65D99E1
+              9585748B42BA834276971BDE8A906E3AC989B8F91F3A86CA4443DF1EA19B63E6
+              BF38CFE3F3AC17AA8CD0CDD5F51565D7EAEE766B25AD221FA9D269E2764F2920
+              C845CD48A0EB2515CE12773C95564A13907712E82E4C60D7EACE4D13447DB95C
+              8AB4D46973C64DA1A4B2D3A33D4FA46CBA61BCE709A7A5906BA3D3ECAC9D7E66
+              1F891D0396010D81D129AC7AE17B8FA45299156F835B9F540AC60079C052881D
+              4F20E3A7772A9D074A54A42B7E0490AAA43D2247F0238784320DD46B85E2C1E8
+              A3EE6FB81D7628C41611596A1D759BE3CE11B7011D959E8F3BE67654A53D04C7
+              DD2ADC91BA5C9F930447DD9610AB49607704F0397000B82EC9511740C61024E5
+              9A45F09B820C21BBC907B3BFC810A253AFCD098EC3A36AF36B2B34C085210232
+              C5D08B413EC625B1ADF173B8948E4D07F501B905175E78729D94D687201D349F
+              E8745095DA2A36F6A7296F5DF2691F0F660041826E22C8CA50C37F7020B392A0
+              2B2048D04D06F989F804DD0A9067081274FDD304E11B984A7C2F1D067915A49D
+              915942823C5306405E5199C586D60517781E0DB5E1B50C4100B593D8ED226486
+              E29FD6EA9CC4DEA1320F44F0DB71E1496C20F5B5429E8214EA76AD30962010CC
+              0DF1B275ADE05718BEE809E59DE471E5D5E5A2C7EB84D0062C8564F7A2C7AFB8
+              19EE0A5A7061CC5C907CE5E5109C53BEC800C897CA5B8D1F964B735CF4ECDD53
+              2E8EEE9C0B03D318641681ABDC0132CCCDDBB8CBD0B1A981C8388270BD48D7CA
+              08826C4A35C84CB27F191AD7883B09F6196FFE8E27B89EAE0179DEF4B2012231
+              909708DC6B29CEBD579AFAD6134A2C5C4C3079DAF0FDA601DE1F06BC466E0419
+              65F8A3CD5AABA1F61F06F629B0BCD4F6B30FC8FB0BC7629D26998624A740BE25
+              0B7FE1C8E69F6A9A020380FEB8B4CD4DB8D490E7FBCFE3EE462A8035C052F7C4
+              4E66AF0DF5E5F229FF0294EFD41ED65FAE190000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Website_50px.png'
+          end>
+        Name = 'Website_50px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C08648800000433494441546881ED995B8855
+              5518C77FFB388D633ACD8C3A1C1B10BA309697A0A96C880C2B2CA41EC24BBE98
+              3D74C1E8CDE821420782E849D0427CC90B04998541110D6886518D83179C4C0B
+              BC46A0664EA8A818E9CCFC7B58DF9E7DE674CE99B3F759FB9C79E80FDF61EF7D
+              D6FABEFF7FEFB5D7FAD6B7036243B7008F014F029D401B300D08C206C079E02C
+              B00FF816F8118281F8B152813A405B4197408A6917419B41F7D552C003A0EE3C
+              623F83D6811683EE07B5825ACC5AEDDA12D07AD0D19C7E43A02F4173AA29A01E
+              F41E68C0485C01AD05DD95C0573BE87DD035F37503D4051AE79FF7C8C0B7837A
+              2CE880DDFDA91EFC66411B4183E67BB71FBF8583DD013A6D817E0775A610E371
+              D0198BF10B689AEF00D91C11FBDD795A501674D0621D0135F9725C07DA6B8E7B
+              40933C392E15B3D9260E81BE0605A3F719DDE91A73782685475D2AEEDD3953FA
+              CA4A9D4D075DB7E97181177EF1E22F3721FDA0C64A1C6D3447DBBC718BCF618F
+              71782BA983465B238640F77AE5168FC71326E44F4B83623B58660E7EF0CE2D1E
+              8FC086B740176CF19D1DC7C126EBFC666A1CCBE772B8409EF60DA8A39CCE07AC
+              C323A9F31C9DCBFA024204BA095A0DCA94EADC6F8D5BABC6B73897178B0809AD
+              1B34B958E71BD628C90BE6199A3F8A10810E815AF27B6680413B4E3B132D07A5
+              864E880E6027E8B6FC8E97ED788A6F5609706799EDE6021B722F6480E3763CCB
+              27A384783446DB15A0A5E14906E8B3E3795E2925C3FC98ED3F0035D8B116DA4B
+              74D837AB7850B3651771EB01AF850EEA41E7ED629C47EB5BC8A60422043A4994
+              FEEB1D86B79E3511D1688B5E122122AACEA8C992358196D740486F0522F23366
+              BD40542DA9E20CA6AE0A4508B423DFE967F6C729505B1544BCE14184403DF98E
+              271215047E03CD4851C4DB0967A9222FFC7F034C059DB00629A4F66A02F57912
+              10DAA962422EDADD2A37652847400657B9FCDBB308B9513432D838D017F6E757
+              9E04CC046D49494068DBEA72028E073E029E03FE025E2F41EE69A00B18008E02
+              A7810B403D301D6807EEC1E56FB7FAB92125712024D64654EBBD4AC1DDA2A680
+              5ECD990CC692CDC2FDE89C5DF8033437877C16F43268272357DE41CF442AB13E
+              8000F429B00CB7C1DA80DB9FB4030FE28647889BC06EE013DCDE659DDFD19118
+              AF40B019D0F6126AAFE0F6C92F3162AFAC09A0B363E0691C03D5C1F0773F7502
+              CF00E3817F8063C011E057080629082D0076453EAA8E21601E04BD1E7CE9C31A
+              3E8DB51E040C0B6900EDAA8188EE7048F9143311F47D1545EC23DADEFA861A88
+              2AFA695B3FFEBE6E1515F43C6E2D4A5BCCE7F8F9BA5552CC24D0BB4495F5B4EC
+              635C5A9536D4025A894B7D7CED3BF26D4F38CCAAB406A819571D7C089735B49A
+              D501978073B8C47326B008977C968B9F80853ED97A82B2A055C4DB7C6DAFD5AA
+              5C26341B7816780A57092D36EDEE18E34272A109C0C3B86A7CF8F9FC2AD00B7C
+              572352FFA328FE055B48CEE3B193209C0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Chat_50px.png'
+          end>
+        Name = 'Chat_50px'
+      end
+      item
+        MultiResBitmap.Height = 48
+        MultiResBitmap.Width = 48
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 48
+            Height = 48
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+              870000000473424954080808087C086488000000F4494441546881ED99510A82
+              4010409FD16FD101AA9F88EE1E75833A9128E805A69FA0905C939D6912E7811F
+              B2EBCE3C85191821088204B207B9809420A27BD927BF03A9F413FF9DC0D52E79
+              3D812221D0022BAD401F4227628F38A57FA9FB9674026AB3F04E209710F02653
+              C0A44F94CF0A78C8741B2A7BD67D422A90ADA580719F1001390F65995146ADFB
+              04000D149BD4861C01A33E31EEDCB957217F42C09B10F02604BC09016F42C09B
+              10F02604BC99BCC0B27FE93F27715D26FF0542C09B10F0265185066981F5EBD6
+              E4B75133B421E70BDC339EFD969BE1D97202A90DE7A235C8D15000DEC6EBAD62
+              E28DD2783D0866C103853BA129C82343C00000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Copy_48px.png'
+          end>
+        Name = 'Copy_48px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C086488000001B0494441546881EDD9BD4EC3
+              301486E137A8120875A8843A502E89817B6560E46FA2485089813F892B608701
+              A4C3E24A2575521FC73EF6904FB2AA36894F9E5449EC04B62292A13D821C6DD7
+              CA9A2C1001591963D68553F72702F202729CAEEFA0C2A9FB937BF7F96A84C906
+              99B5308B74357A0BE7E8CF149313028698DC106861DE32612C206080B1828007
+              7392AEAE29045A98F784186B0864C2948040064C290824C6641D6B69DB736895
+              C65F18A0F12C8B85A8F30B4C34FB318928A24CEC01D11D80BDB822F56584D496
+              11525B46486D1921B56584D49611525B0C46BF5D915BE0003885E6D3B3C235B0
+              6B8A3C072E802FDFC2C413ABCE9D58CF049FDC0E69B79FBB6D0564E95BC10A32
+              E0B9962CDC36EB87E333DF4A461088C30421C016023A4C3002EC2110865121A0
+              0C04FA316A049483801F138580B21068613E5CD322A03C041C66B5F1A06EB50B
+              51EB10E510986E7C9FBADF3429FD8FFC3B271E5C8B791954F464F79CD8D12380
+              6297DF9EAB5314A6C80D31E012ABC6980F5114F7091566D0FB8CBE76330CA1C6
+              6441FC805C0E47A831169125E926567789DE4AC544AE807DE0AC63AA1BD2C71C
+              3807BEFF002BFFD9A473F1E69E0000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Delete File_50px.png'
+          end>
+        Name = 'Delete File_50px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C08648800000253494441546881ED9ACB8A13
+              411486BF9E7122232E5CB81074E5AC441D2FE84E057D0305F73E8C1974EBC627
+              F059C485CEC52BE822E8A80B0575218312F3CFA24F859E4E75D2D5B1ABBB211F
+              1445AA2BF0FFE93AA7AA0E81050B1694443DD003D000A412ED0DE84ED3AA3DE8
+              614903D9F61774B969E539F4C5C4DD2839FF91CD7F055AAD575B10EE572E3DFF
+              3068D3BEF7B83E5DC1841A01D03AE84F852559A50D407DD04A0D4600743B2041
+              FC8FD6AFC9482C74CB34EECE9AD87223304DE3A1D852E623498A9E2CC5945127
+              338C04EFF6B1DBC093C97CEBAFD26EDF44EBCF3212B8DBC7669CC93E66077346
+              74CAC6BE45D7571A9D348DDFA7C5C815EB9FC79054910BD66F4F3372C9FA1735
+              8B998775EB77CA18D9AC59CC3C9CB7FE65666C2246766D6C2DA6B230B4631AAF
+              6607334674C23EFF0015EEA6CDA21EE9C56E085A2D5A5A17ADDF82A4ADE7AF33
+              C00AF00192BD2223EEFADA99F82832D2B9409FF5463A917A73E3E373CB31D008
+              F41BB41C5B5D79F4D9F49ECE3F70466E5AFFB4117DA5D071D3F8CB6555DFD2EA
+              527CBC7659B5AB4626E2C367A40B81EE3B9A38C6313224AD55F5622A0B43CF4C
+              EB75DFC3EC8DABC5CB4A4B96514769864D29DA475A6C8435E008F009929F6EB0
+              8B46BC1B619191CE05BACFC808D8AA5D4E75DC1BF1652CC804FADB588AAAA1F7
+              A6F36CD10467E449545D41E828E81F680F74A0DCEB5B5A6D0EF473A49ADF4132
+              CC3EE89A1117E8F9A3BBD7C876BD5AE6C21519268C64189747AFC55014869641
+              772D36469E3BC881C91B2D28468716AC0B5DDF077D6D81D87C1B92FE41E11EAD
+              2D4F2D58D06EF6010126E736620A43090000000049454E44AE426082}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\Open_50px.png'
+          end>
+        Name = 'Open_50px'
+      end
+      item
+        MultiResBitmap.Height = 50
+        MultiResBitmap.Width = 50
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap = <
+          item
+            Width = 50
+            Height = 50
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+              B10000000473424954080808087C08648800000458494441546881DD9ACB4F5C
+              551CC73F73E7CE0C50282DC51643AB586D21A422C6476BDBD085603571631A97
+              D58D89890BFF05D76E5C69176EDA6835D1D6687C4482552454A08D7D21944289
+              F2280E421F0C45288F99EBE237C3BC877BCEBDC3C34F32B98FF33BE777BE734F
+              CEFDFDCEB91ECBB22CFE0798F968D4020683D07B0BC6A7607E110AFD505906F5
+              5572741B8F9B4FC4B2A063009AAFC24428BBDD1315706C3FECDEE19667178504
+              A7E0642B0C4FDA74EC81A63A78ED79303CCEFDBB22E4CA9088985F54AFBB6F17
+              BCDD047E8783DCB190737FC0D92E1956BAD454C2BBAF80D7D06FC3415568E986
+              339DCE4400DC188353BF3A6B435BC86FFDF0559733E7895C1C849FBAF5EB6B09
+              1908C267EDFA4EB3F1F54518BEAD575759C8D42C7C7C0EC2113D87B90847E0D3
+              36BDA1AA2CE4542BDC9F53776497D13B706150BD9E92905F7AA06F4CDD892A2D
+              D7D4EBD816F24F48C6F06A307617AEDF52AB634B48EF28BCFF0D2C2CE9744B8F
+              9F7BD4EC577C9FFE7019BEBBA4FFAE30A27F55447172E81D95786D7BA94D3FD9
+              0A22167CD206DFFEEEEC85776CBFFC54B12C891AEC9251C8FC127CD82C2F3D27
+              D4EE84C627E557BB53BD7E473F8466EDD9A6095958820FBE9747EB04BF09C71B
+              E2D7C71BD403C3C530FC78C59E6D9A90D3ED3034A1E630132FD7435971FCBAAC
+              58EEA9D2D667EF6D9F24E4DA305CB8A9EE2C952D9B24D748A5A94ECA548844E0
+              A366E8FF3BB7DDB210CB9270DC0D5E7D26F330F29B52A64A685686FBE9F6ECA1
+              D1B290AB43B9D353BB6C2B81837BB3971FDC2B363AB4F7C18996CC629685740C
+              E8359ECAD1A77227485E436C74E91981CFCFA7DF3740662AD5902013A54570A8
+              7A65BB43D562ABCBF91B70E9CFE47B06C0D0242C85F51B8ED15807A677653BD3
+              2BB64E38DB953CC40C8011CD6426119F09876D3C8D1887ABA58E2E776724AB8C
+              6100DCB9AFDF608C67774351C0BE7D5140EA382131F23041B23EA7D454CAAA62
+              22155B92AF53CB6B2AA1D3C12433380E330FA0B8202A6441633D2A9593ADE9F7
+              4EBC159FC1C21178EF4BE77E12B12CB8390E4F574587D6521EF2EFD56224BAB2
+              6980B385B1B566625A8E0680B98185CC3C90A3016AB3CD7A2396F46D7821310C
+              48CE1B362A0640B96634BA1EF044F7560CC8CF56D86AB1359AA8C913D90C9B0A
+              D6B23BFA3CB4598E068007A87E780D7BE3805DE5725C8E3FEB1F83CB7FB9EBE4
+              8B8EF8FE60240F9BE08607F654C8795C48956C21CF2DB8E7A8EDBA7B6D65A26A
+              BBF4191252DD8009476AF3EBD86D9E7B3C7E9E149C1CAD8792C2D5EE8E1E053E
+              3890B0C89124A4C80F6F34C4E7E6F54C639DF437465AB858F728BCFEC2FA16B3
+              A3347D252663DCFBE23E78F308047CABD12D350AFD993F30C8F9C1C0E4349CE9
+              82EE61E77BE96EB0B518DE79091E294F2FB3F5E543700A3AFBA17B0482F7F2D1
+              C5DC6C2B81037B64EDB8D09FD946F9138E7FE761F4368C87E0DE0C4CCFC1ECBC
+              A4CB96253F8F479235AF578E019FCC32019F0C89D879C094352E9F376EEB35E2
+              F74CAFD866EBBC2321EB95FF00CE6A43C58928464C0000000049454E44AE4260
+              82}
+            FileName = 
+              'E:\Proyectos\Delphi11\Compo\TdCompoFMX\OpenAi\Demos\Assistant\Re' +
+              'cursos\upload assistant file x50.png'
+          end>
+        Name = 'upload assistant file x50'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'Connected_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Disconnected_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Broom_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Trash Can_52px'
+            SourceRect.Right = 52.000000000000000000
+            SourceRect.Bottom = 52.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Delete_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Reset_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Attach_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Upload to the Cloud_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Download from the Cloud_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Play_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Stop_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'View Details_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Save_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Settings_52px'
+            SourceRect.Right = 52.000000000000000000
+            SourceRect.Bottom = 52.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Microphone_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Website_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Chat_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Copy_48px'
+            SourceRect.Right = 48.000000000000000000
+            SourceRect.Bottom = 48.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Delete File_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'Open_50px'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end
+      item
+        Layers = <
+          item
+            Name = 'upload assistant file x50'
+            SourceRect.Right = 50.000000000000000000
+            SourceRect.Bottom = 50.000000000000000000
+          end>
+      end>
+    Left = 536
+    Top = 488
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    Left = 536
+    Top = 432
+    object ac_NuevoAsistente: TAction
+      Category = 'Asistentes'
+      Text = 'Crea un nuevo Asistente'
+      OnExecute = ac_NuevoAsistenteExecute
+    end
+    object ac_EditarAsistente: TAction
+      Category = 'Asistentes'
+      Text = 'Editar un Asistente'
+      OnExecute = ac_EditarAsistenteExecute
+      OnUpdate = ac_EditarAsistenteUpdate
+    end
+    object ac_GuardarCambios: TAction
+      Category = 'Asistentes'
+      Text = 'Guardar Cambios'
+      OnExecute = ac_GuardarCambiosExecute
+      OnUpdate = ac_GuardarCambiosUpdate
+    end
+    object ac_EliminarAsistente: TAction
+      Category = 'Asistentes'
+      Text = 'Eliminar Asistente'
+      OnExecute = ac_EliminarAsistenteExecute
+      OnUpdate = ac_EliminarAsistenteUpdate
+    end
+  end
+end
