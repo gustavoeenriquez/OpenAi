@@ -69,7 +69,7 @@ var
   Form64: TForm64;
 
 Const
-  ApiKey = 'Escriba aquí el ApiKey de OpenAi';
+  ApiKey = 'aquí debe ir el apikey de openai';
 
 implementation
 
